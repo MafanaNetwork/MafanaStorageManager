@@ -1,6 +1,7 @@
 package me.tahacheji.mafananetwork.data;
 
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.WorldCreator;
 import org.bukkit.entity.Player;
@@ -12,19 +13,20 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class WorldManager {
 
-    private Player player;
+    private UUID uuid;
     private String templateWorldName;
 
-    public WorldManager(Player player, String templateWorldName) {
-        this.player = player;
+    public WorldManager(UUID uuid, String templateWorldName) {
+        this.uuid = uuid;
         this.templateWorldName = templateWorldName;
     }
 
     public World getPlayerWorld() {
-        String playerWorldName = player.getName().toLowerCase() + "_storage_world";
+        String playerWorldName = uuid.toString().toLowerCase() + "_storage_world";
         World existingWorld = Bukkit.getWorld(playerWorldName);
 
         if (existingWorld != null) {
@@ -83,8 +85,8 @@ public class WorldManager {
         }
     }
 
-    public Player getPlayer() {
-        return player;
+    public UUID getUuid() {
+        return uuid;
     }
 
     public String getTemplateWorldName() {

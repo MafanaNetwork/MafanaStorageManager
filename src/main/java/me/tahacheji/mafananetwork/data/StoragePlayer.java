@@ -4,22 +4,24 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.entity.Player;
 
+import java.util.UUID;
+
 public class StoragePlayer {
 
-    private OfflinePlayer player;
+    private final UUID uuid;
     private World world;
 
-    public StoragePlayer(OfflinePlayer player) {
-        this.player = player;
+    public StoragePlayer(UUID uuid) {
+        this.uuid = uuid;
     }
 
-    public StoragePlayer(OfflinePlayer player, World world) {
-        this.player = player;
+    public StoragePlayer(UUID uuid, World world) {
+        this.uuid = uuid;
         this.world = world;
     }
 
-    public OfflinePlayer getPlayer() {
-        return player;
+    public UUID getUuid() {
+        return uuid;
     }
 
     public World getWorld() {

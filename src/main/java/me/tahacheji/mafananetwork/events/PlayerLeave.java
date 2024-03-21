@@ -13,7 +13,7 @@ public class PlayerLeave implements Listener {
 
     @EventHandler
     public void onLeave(PlayerQuitEvent event) {
-        MafanaStorageManager.getMafanaStorageManager().removeStoragePlayer(event.getPlayer());
+        MafanaStorageManager.getInstance().getMafanaStorageManager().removeStoragePlayer(event.getPlayer().getUniqueId());
     }
 
 }
